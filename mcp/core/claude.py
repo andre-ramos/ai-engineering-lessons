@@ -1,64 +1,42 @@
-from anthropic import Anthropic
-from anthropic.types import Message
+from typing import Any
+
+from openai import OpenAI
+from openai.types.responses import Response
 
 
-class Claude:
+class OpenAIService:
     def __init__(self, model: str):
-        self.client = Anthropic()
+        self.client = OpenAI()
         self.model = model
 
-    def add_user_message(self, messages: list, message):
-        user_message = {
-            "role": "user",
-            "content": message.content
-            if isinstance(message, Message)
-            else message,
-        }
-        messages.append(user_message)
+    def add_response_items(
+        self, messages: list[Any], response: Response
+    ) -> None:
+        """Preserve all model output items for the next Responses API call."""
+        messages.extend(response.output)
 
-    def add_assistant_message(self, messages: list, message):
-        assistant_message = {
-            "role": "assistant",
-            "content": message.content
-            if isinstance(message, Message)
-            else message,
-        }
-        messages.append(assistant_message)
+    def has_tool_calls(self, response: Response) -> bool:
+        return any(item.type == "function_call" for item in response.output)
 
-    def text_from_message(self, message: Message):
-        return "\n".join(
-            [block.text for block in message.content if block.type == "text"]
-        )
+    def text_from_message(self, response: Response) -> str:
+        return response.output_text
 
     def chat(
         self,
-        messages,
-        system=None,
-        temperature=1.0,
-        stop_sequences=[],
-        tools=None,
-        thinking=False,
-        thinking_budget=1024,
-    ) -> Message:
+        messages: list[Any],
+        system: str | None = None,
+        tools: list[dict[str, Any]] | None = None,
+    ) -> Response:
         params = {
             "model": self.model,
-            "max_tokens": 8000,
-            "messages": messages,
-            "temperature": temperature,
-            "stop_sequences": stop_sequences,
+            "input": messages,
+            "max_output_tokens": 8000,
         }
-
-        if thinking:
-            params["thinking"] = {
-                "type": "enabled",
-                "budget_tokens": thinking_budget,
-            }
 
         if tools:
             params["tools"] = tools
 
         if system:
-            params["system"] = system
+            params["instructions"] = system
 
-        message = self.client.messages.create(**params)
-        return message
+        return self.client.responses.create(**params)

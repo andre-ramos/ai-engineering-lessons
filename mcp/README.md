@@ -1,11 +1,11 @@
 # MCP Chat
 
-MCP Chat is a command-line interface application that enables interactive chat capabilities with AI models through the Anthropic API. The application supports document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Control Protocol) architecture.
+MCP Chat is a command-line interface application that enables interactive chat capabilities with AI models through the OpenAI API. The application supports document retrieval, command-based prompts, and extensible tool integrations via the MCP (Model Context Protocol) architecture.
 
 ## Prerequisites
 
-- Python 3.9+
-- Anthropic API Key
+- Python 3.10+
+- OpenAI API key
 
 ## Setup
 
@@ -14,8 +14,12 @@ MCP Chat is a command-line interface application that enables interactive chat c
 1. Create or edit the `.env` file in the project root and verify that the following variables are set correctly:
 
 ```
-ANTHROPIC_API_KEY=""  # Enter your Anthropic API secret key
+OPENAI_MODEL="gpt-5.6-luna"
+OPENAI_API_KEY=""  # Enter your OpenAI API secret key
 ```
+
+You can replace `gpt-5.6-luna` with another OpenAI model that supports
+function calling through the Responses API.
 
 ### Step 2: Install dependencies
 
@@ -60,7 +64,7 @@ source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 2. Install dependencies:
 
 ```bash
-pip install anthropic python-dotenv prompt-toolkit "mcp[cli]==1.8.0"
+pip install openai python-dotenv prompt-toolkit "mcp[cli]==1.8.0"
 ```
 
 3. Run the project

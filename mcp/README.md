@@ -31,8 +31,8 @@ Chat orchestration (core/chat.py and core/cli_chat.py)
             v
       Document server (mcp_server.py)
             |
-            +--> read contents
-            +--> Edit document
+            +--> read_contents
+            +--> edit_document
 ```
 
 When `main.py` starts, it:
@@ -46,7 +46,7 @@ When `main.py` starts, it:
 7. returns tool results to OpenAI so it can produce the final answer.
 
 The document server currently keeps its sample documents in memory. Changes
-made with `Edit document` last only until the server process stops.
+made with `edit_document` last only until the server process stops.
 
 ## Project structure
 
@@ -143,15 +143,16 @@ mcp dev mcp_server.py
 The Inspector opens a browser interface where you can connect to the server,
 list its capabilities, enter tool arguments, and inspect results.
 
-![MCP Inspector connected to DocumentMCP and running the read contents tool](./mcp_inspector.png)
+![MCP Inspector connected to DocumentMCP and running the document-reading tool](./mcp_inspector.png)
 
 In the screenshot, the Inspector is connected to `DocumentMCP` over STDIO. The
-Tools tab lists `read contents` and `Edit document`; the selected tool reads
-`financials.docx` and displays the returned document text.
+selected tool reads `financials.docx` and displays the returned document text.
+The screenshot was captured before the tool identifiers were normalized for
+OpenAI; the current names are `read_contents` and `edit_document`.
 
 ## Available server tools
 
-### `read contents`
+### `read_contents`
 
 Reads a document from the in-memory `docs` dictionary.
 
@@ -163,7 +164,7 @@ Example input:
 }
 ```
 
-### `Edit document`
+### `edit_document`
 
 Replaces an exact string inside a document.
 

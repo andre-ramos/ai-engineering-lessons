@@ -49,3 +49,24 @@ for i,x_i in enumerate(inputs):
     context_vec_2 += attn_weights_2[i]*x_i
 
 print(context_vec_2)
+
+
+# Simple self attention mechanism without trainable weights
+attn_scores = torch.empty(6,6)
+
+for i, x_i in enumerate(inputs):
+    for j,x_j in enumerate(inputs):
+        attn_scores[i, j] = torch.dot(x_i, x_j) # These for loops are slow, we could use matrix multiplication instead
+
+print(attn_scores) 
+
+# Using matrix multiplication
+attn_scores = inputs @ inputs.T
+
+print(attn_scores)
+
+# Lets normalize the weights
+
+attn_weights = torch.softmax(attn_scores, dim=1)
+all_context_vecs = attn_weights @ inputs
+print(all_context_vecs)

@@ -70,3 +70,45 @@ print(attn_scores)
 attn_weights = torch.softmax(attn_scores, dim=1)
 all_context_vecs = attn_weights @ inputs
 print(all_context_vecs)
+
+
+# 3.4 Implementing self-attention with trainable weights
+
+#3.41. Computing the attetion weights
+# Choosing the embedding size
+x_2 = inputs[1]
+d_in = inputs.shape[1] 
+d_out = 2
+
+# generating random values on 3x2 matrix
+torch.manual_seed(123)
+
+#Creating a trainable matrix
+w_query = torch.nn.Parameter(torch.rand(d_in, d_out))
+w_key = torch.nn.Parameter(torch.rand(d_in, d_out))
+w_value = torch.nn.Parameter(torch.rand(d_in, d_out))
+
+# Transforming the 3 dimension embedding to 2 dimension embedding
+# The queries are being reused, the keys and values are unique
+query_2 = x_2 @ w_query
+
+keys = inputs @ w_key 
+value = inputs @ w_value
+
+keys_2 = keys[1]
+# Second input to second input to the query
+attn_scores_22 = torch.dot(query_2, keys_2)
+
+# Compute all in one go
+attn_scores_2 = query_2 @ keys.T
+
+# Compute the normalized vectors using softmax
+d_k = keys.shape[1]
+
+attn_weights_2 = torch.softmax(attn_scores_2 / d_k**0.5, dim=-1)
+print(attn_weights_2)
+
+context_vec_2 = attn_weights_2 @ value
+
+print(context_vec_2)
+

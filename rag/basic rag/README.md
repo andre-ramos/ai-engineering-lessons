@@ -1,4 +1,4 @@
-```md
+
 # Simple RAG (Retrieval-Augmented Generation) System
 
 ## Overview
@@ -74,4 +74,4 @@ The system includes an `evaluate_rag` function to assess the performance of the 
 This simple RAG system provides a solid foundation for building more complex information retrieval and question-answering systems.
 
 By encoding document content into a searchable vector store, it enables efficient retrieval of relevant information in response to queries. This approach is particularly useful for applications requiring quick access to specific information within large documents or document collections.
-```
+

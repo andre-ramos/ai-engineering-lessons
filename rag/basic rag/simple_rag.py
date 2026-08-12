@@ -32,7 +32,7 @@ def encode_pdf(path="data/Understanding_Climate_Change.pdf", chunk_size=500, chu
     loader = PyPDFLoader(path)
     documents = loader.load()
 
-    # Splitting documents into chunks
+    # Splitting documents into chunks, we pass length_function=len to specify how the splitter measures chunk size.
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap, length_function=len)
 
     texts = text_splitter.split_documents(documents)

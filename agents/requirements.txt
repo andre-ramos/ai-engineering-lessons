@@ -1,3 +1,8 @@
+langchain
 langchain-core
 langchain-openai
 langchain-community
+langchain-experimental
+pandas
+numpy
+tabulate

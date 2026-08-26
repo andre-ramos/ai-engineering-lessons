@@ -1,3 +1,11 @@
+
+# Dealing with RAG Hallucinations: https://www.youtube.com/watch?v=oVI2GA8jn7w
+
+# The idea is to check the generated answer with a LLM
+# Query -> Vector Store -> Retrieve Docs -> Check relevant docs -> Generate the answer -> Check Hallucination (Grounded answer or not)
+
+
+
 import os
 from pathlib import Path
 from typing import Literal, Sequence

@@ -1,0 +1,12 @@
+# Install required packages
+python-dotenv
+langchain
+langchain-core
+langchain-community
+langchain-openai
+faiss-cpu
+openai
+pydantic
+rank-bm25
+pymupdf
+deepeval

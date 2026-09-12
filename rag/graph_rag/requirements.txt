@@ -1,0 +1,22 @@
+
+faiss-cpu
+langchain>=0.3,<1.0
+langchain-community>=0.3,<1.0
+langchain-openai>=0.3,<1.0
+pymupdf
+matplotlib
+networkx
+nltk
+numpy
+
+python-dotenv
+scikit-learn
+spacy
+tqdm
+rank-bm25
+# Used by PDF loading / helper utilities
+pypdf
+pydantic>=2,<3
+
+# Required by evaluation/evalute_rag.py from RAG_TECHNIQUES
+deepeval

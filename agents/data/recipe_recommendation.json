@@ -1,0 +1,90 @@
+{
+  "recipes": [
+    {
+      "recipe_name": "Skillet Eggplant Parmesan for Two",
+      "ingredients": [
+        {
+          "item_name": "Eggplant",
+          "quantity": "1 medium",
+          "unit": "pcs"
+        },
+        {
+          "item_name": "BH Fresh Mozzarella Ball",
+          "quantity": "4 oz",
+          "unit": "oz"
+        },
+        {
+          "item_name": "Jumbo White Onions",
+          "quantity": "1/2",
+          "unit": "pcs"
+        },
+        {
+          "item_name": "Tomato Sauce",
+          "quantity": "1 cup",
+          "unit": "cup"
+        },
+        {
+          "item_name": "Olive Oil",
+          "quantity": "3 tbsp",
+          "unit": "tbsp"
+        },
+        {
+          "item_name": "Fresh Basil (optional)",
+          "quantity": "a handful",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "Slice the eggplant into 1/2-inch thick rounds. Salt both sides and let rest for 30 minutes to draw out moisture. Pat dry with paper towels.",
+        "In a large skillet, heat olive oil over medium heat. Fry the eggplant slices until golden brown on both sides. Remove and set aside on paper towels to drain excess oil.",
+        "In the same skillet, sauté thinly sliced onions until soft and translucent.",
+        "Add tomato sauce to the skillet with the onions and simmer for about 5 minutes.",
+        "Layer the fried eggplant slices in the skillet, spoon sauce over them, then add slices of fresh mozzarella on top.",
+        "Cover and cook on low heat until mozzarella melts and sauce bubbles, about 10 minutes.",
+        "Garnish with fresh basil if available and serve warm."
+      ],
+      "source": "https://www.americastestkitchen.com/recipes/8738-skillet-eggplant-parmesan-for-two"
+    },
+    {
+      "recipe_name": "Best Baked Potatoes",
+      "ingredients": [
+        {
+          "item_name": "Russet Potatoes",
+          "quantity": "2 large",
+          "unit": "pcs"
+        },
+        {
+          "item_name": "Olive Oil",
+          "quantity": "1 tbsp",
+          "unit": "tbsp"
+        },
+        {
+          "item_name": "Salt",
+          "quantity": "to taste",
+          "unit": ""
+        }
+      ],
+      "steps": [
+        "Preheat oven to 425°F (220°C).",
+        "Scrub potatoes clean and pat dry.",
+        "Prick each potato several times with a fork.",
+        "Rub skin with olive oil and sprinkle with salt.",
+        "Place potatoes directly on oven rack and bake for 45-60 minutes until skins are crispy and interiors are fluffy.",
+        "Serve with butter, sour cream or toppings of choice."
+      ],
+      "source": "https://www.americastestkitchen.com/recipes/8779-best-baked-potatoes"
+    }
+  ],
+  "restock_recommendations": [
+    {
+      "item_name": "Tomato Sauce",
+      "quantity_needed": 1,
+      "unit": "cup"
+    },
+    {
+      "item_name": "Olive Oil",
+      "quantity_needed": 4,
+      "unit": "tbsp"
+    }
+  ]
+}

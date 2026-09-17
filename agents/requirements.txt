@@ -7,3 +7,6 @@ pandas
 numpy
 tabulate
 ipython
+Markdown
+crewai
+crewai_tools
